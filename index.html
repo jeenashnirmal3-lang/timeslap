@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Timestamp Transcriber</title>
+    <meta name="description" content="Upload audio files (mp3, wav, m4a) and generate clean, editable [M:SS] timestamped transcripts." />
+    <meta property="og:title" content="Audio Timestamp Transcriber" />
+    <meta property="og:description" content="Upload audio files (mp3, wav, m4a) and generate clean, editable [M:SS] timestamped transcripts." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        try {
+          if (window.fetch) {
+            window._nativeFetch = window.fetch.bind(window);
+          }
+          var realFetch = window.fetch;
+          var descriptor = Object.getOwnPropertyDescriptor(window, 'fetch') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(window), 'fetch');
+          if (descriptor && !descriptor.set) {
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return realFetch; },
+              set: function(fn) { realFetch = fn; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+
+        window.addEventListener('error', function(event) {
+          if (event && event.message && event.message.indexOf('fetch') !== -1 && event.message.indexOf('getter') !== -1) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+
+      try {
+        if (window.location.hostname) {
+          document.cookie = '__SECURE-aistudio_auth_flow_may_set_cookies=true; Path=/; Secure; SameSite=None; Domain=' + window.location.hostname + '; Partitioned; Max-Age=3600;';
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

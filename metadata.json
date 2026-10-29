@@ -1,0 +1,6 @@
+{
+  "name": "Audio Timestamp Transcriber",
+  "description": "Upload audio files (mp3, wav, m4a) and generate clean, editable [M:SS] timestamped transcripts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
